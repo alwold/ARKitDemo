@@ -10,8 +10,10 @@ import UIKit
 import ARKit
 import os.log
 
-class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, SettingsDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var debugView: UIView!
+    @IBOutlet weak var planeCountLabel: UILabel!
     
     var planesByAnchorIdentifier = [UUID: Plane]()
     
@@ -19,6 +21,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
+        Settings.shared.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +41,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             let plane = Plane(anchor: anchor)
             node.addChildNode(plane)
             planesByAnchorIdentifier[anchor.identifier] = plane
+            updateDebugView()
         }
     }
     
@@ -47,6 +51,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             if let plane = planesByAnchorIdentifier[anchor.identifier] {
                 os_log("found existing plane, updating it")
                 plane.update(anchor: anchor)
+                updateDebugView()
             }
         }
     }
@@ -57,7 +62,20 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             if let plane = planesByAnchorIdentifier.removeValue(forKey: anchor.identifier) {
                 os_log("found the plane, removing it")
                 plane.removeFromParentNode()
+                updateDebugView()
             }
+        }
+    }
+    
+    // MARK: - Settings
+    func showDebugViewChanged(to showDebugView: Bool) {
+        debugView.isHidden = !showDebugView
+    }
+    
+    // MARK: - Debug View
+    func updateDebugView() {
+        DispatchQueue.main.async {
+            self.planeCountLabel.text = "Planes: \(self.planesByAnchorIdentifier.count)"
         }
     }
 }

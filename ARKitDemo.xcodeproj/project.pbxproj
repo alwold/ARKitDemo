@@ -13,6 +13,8 @@
 		883C7A771F741A2A003ECA73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883C7A751F741A2A003ECA73 /* LaunchScreen.storyboard */; };
 		883C7A7F1F741DD0003ECA73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A7E1F741DD0003ECA73 /* ViewController.swift */; };
 		883C7A811F7420EC003ECA73 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A801F7420EC003ECA73 /* Plane.swift */; };
+		883C7A831F742682003ECA73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A821F742682003ECA73 /* Settings.swift */; };
+		883C7A851F742707003ECA73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A841F742707003ECA73 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		883C7A781F741A2A003ECA73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		883C7A7E1F741DD0003ECA73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		883C7A801F7420EC003ECA73 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		883C7A821F742682003ECA73 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		883C7A841F742707003ECA73 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				883C7A781F741A2A003ECA73 /* Info.plist */,
 				883C7A7E1F741DD0003ECA73 /* ViewController.swift */,
 				883C7A801F7420EC003ECA73 /* Plane.swift */,
+				883C7A821F742682003ECA73 /* Settings.swift */,
+				883C7A841F742707003ECA73 /* SettingsViewController.swift */,
 			);
 			path = ARKitDemo;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 			files = (
 				883C7A7F1F741DD0003ECA73 /* ViewController.swift in Sources */,
 				883C7A811F7420EC003ECA73 /* Plane.swift in Sources */,
+				883C7A831F742682003ECA73 /* Settings.swift in Sources */,
+				883C7A851F742707003ECA73 /* SettingsViewController.swift in Sources */,
 				883C7A6D1F741A2A003ECA73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

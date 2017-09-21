@@ -20,6 +20,33 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1W-Sb-jhh">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkf-JN-96u">
+                                <rect key="frame" x="10" y="593" width="64" height="64"/>
+                                <state key="normal" image="cogwheel-outline"/>
+                                <connections>
+                                    <segue destination="52s-Cg-M3q" kind="popoverPresentation" popoverAnchorView="rkf-JN-96u" id="ttP-Ip-Y5R">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gn-kD-imx">
+                                <rect key="frame" x="264" y="606" width="111" height="61"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planes: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-b3-uFe">
+                                        <rect key="frame" x="20" y="20" width="71" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="DzI-b3-uFe" firstAttribute="top" secondItem="2Gn-kD-imx" secondAttribute="top" constant="20" symbolic="YES" id="Bwq-fi-k2u"/>
+                                    <constraint firstItem="DzI-b3-uFe" firstAttribute="leading" secondItem="2Gn-kD-imx" secondAttribute="leading" constant="20" symbolic="YES" id="b6t-c1-4bg"/>
+                                    <constraint firstAttribute="trailing" secondItem="DzI-b3-uFe" secondAttribute="trailing" constant="20" symbolic="YES" id="szl-pE-3mc"/>
+                                    <constraint firstAttribute="bottom" secondItem="DzI-b3-uFe" secondAttribute="bottom" constant="20" symbolic="YES" id="zbh-6Y-kAe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -27,10 +54,16 @@
                             <constraint firstItem="1UP-gt-XHA" firstAttribute="bottom" secondItem="K1W-Sb-jhh" secondAttribute="bottom" id="3XS-Sw-E42"/>
                             <constraint firstItem="1UP-gt-XHA" firstAttribute="trailing" secondItem="K1W-Sb-jhh" secondAttribute="trailing" id="FOp-AW-rls"/>
                             <constraint firstItem="1UP-gt-XHA" firstAttribute="top" secondItem="K1W-Sb-jhh" secondAttribute="top" id="LBg-ih-sqW"/>
+                            <constraint firstItem="1UP-gt-XHA" firstAttribute="trailing" secondItem="2Gn-kD-imx" secondAttribute="trailing" id="d6b-EU-cGu"/>
+                            <constraint firstItem="rkf-JN-96u" firstAttribute="leading" secondItem="1UP-gt-XHA" secondAttribute="leading" constant="10" id="nzi-4H-OUj"/>
+                            <constraint firstItem="1UP-gt-XHA" firstAttribute="bottom" secondItem="2Gn-kD-imx" secondAttribute="bottom" id="s6F-fJ-lQv"/>
+                            <constraint firstItem="1UP-gt-XHA" firstAttribute="bottom" secondItem="rkf-JN-96u" secondAttribute="bottom" constant="10" id="sct-Qc-yfJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1UP-gt-XHA"/>
                     </view>
                     <connections>
+                        <outlet property="debugView" destination="2Gn-kD-imx" id="tdD-TG-sNR"/>
+                        <outlet property="planeCountLabel" destination="DzI-b3-uFe" id="fVk-xM-emm"/>
                         <outlet property="sceneView" destination="K1W-Sb-jhh" id="LYr-Wr-UsW"/>
                     </connections>
                 </viewController>
@@ -38,5 +71,56 @@
             </objects>
             <point key="canvasLocation" x="157.59999999999999" y="114.69265367316342"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="kgg-GM-Q84">
+            <objects>
+                <viewController id="52s-Cg-M3q" customClass="SettingsViewController" customModule="ARKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pR8-ZH-Fyq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I5v-om-MS8">
+                                <rect key="frame" x="16" y="36" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="52s-Cg-M3q" eventType="valueChanged" id="R5R-BR-K6e"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Debug View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMc-3t-9N3">
+                                <rect key="frame" x="73" y="41" width="139" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons made by Fermam Aziz from www.flaticon.com is licensed by CC 3.0 BY" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GX-du-pWW">
+                                <rect key="frame" x="16" y="619.5" width="343" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0GX-du-pWW" firstAttribute="leading" secondItem="TWJ-Uc-rR2" secondAttribute="leading" constant="16" id="29m-U0-6Qk"/>
+                            <constraint firstItem="I5v-om-MS8" firstAttribute="top" secondItem="TWJ-Uc-rR2" secondAttribute="top" constant="16" id="3u7-ne-qo6"/>
+                            <constraint firstItem="VMc-3t-9N3" firstAttribute="leading" secondItem="I5v-om-MS8" secondAttribute="trailing" constant="8" symbolic="YES" id="5b7-SZ-M9G"/>
+                            <constraint firstItem="TWJ-Uc-rR2" firstAttribute="trailing" secondItem="0GX-du-pWW" secondAttribute="trailing" constant="16" id="AOe-TC-S0H"/>
+                            <constraint firstItem="TWJ-Uc-rR2" firstAttribute="bottom" secondItem="0GX-du-pWW" secondAttribute="bottom" constant="16" id="JWE-29-RdJ"/>
+                            <constraint firstItem="VMc-3t-9N3" firstAttribute="centerY" secondItem="I5v-om-MS8" secondAttribute="centerY" id="eDw-OM-uIE"/>
+                            <constraint firstItem="I5v-om-MS8" firstAttribute="leading" secondItem="TWJ-Uc-rR2" secondAttribute="leading" constant="16" id="u7u-2r-YUe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TWJ-Uc-rR2"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="200"/>
+                    <connections>
+                        <outlet property="showDebugViewSwitch" destination="I5v-om-MS8" id="Oae-eD-qfd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIx-U3-l8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="156" y="796"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="cogwheel-outline" width="64" height="64"/>
+    </resources>
 </document>
