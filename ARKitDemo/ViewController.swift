@@ -44,6 +44,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Se
             }
             node.addChildNode(plane)
             planesByAnchorIdentifier[anchor.identifier] = plane
+            extendLowestPlane()
             updateDebugView()
         }
     }
@@ -54,6 +55,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Se
             if let plane = planesByAnchorIdentifier[anchor.identifier] {
                 os_log("found existing plane, updating it")
                 plane.update(anchor: anchor)
+                extendLowestPlane()
                 updateDebugView()
             }
         }
@@ -65,7 +67,34 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Se
             if let plane = planesByAnchorIdentifier.removeValue(forKey: anchor.identifier) {
                 os_log("found the plane, removing it")
                 plane.removeFromParentNode()
+                extendLowestPlane()
                 updateDebugView()
+            }
+        }
+    }
+    
+    /**
+     Go through the planes, find the lowest one and make it really big, so balls always land on something.
+     */
+    func extendLowestPlane() {
+        var lowestY = Float.infinity
+        var lowestPlane: Plane?
+        for plane in planesByAnchorIdentifier.values {
+            let parentY = plane.parent!.position.y // get the Y position of the plane anchor node added by ARKit
+            let translateY = plane.position.y
+            let actualY = parentY + translateY
+            if actualY < lowestY {
+                lowestPlane = plane
+                lowestY = actualY
+            }
+        }
+        if let lowestPlane = lowestPlane {
+            os_log("setting lowest plane: %@", lowestPlane)
+            lowestPlane.isLowestPlane = true
+        }
+        for plane in planesByAnchorIdentifier.values {
+            if plane !== lowestPlane {
+                plane.isLowestPlane = false
             }
         }
     }
