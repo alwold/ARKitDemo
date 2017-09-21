@@ -20,6 +20,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Se
     // MARK: - View Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        sceneView.autoenablesDefaultLighting = true
+        
         sceneView.delegate = self
         Settings.shared.delegate = self
     }
@@ -96,6 +98,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Se
             if plane !== lowestPlane {
                 plane.isLowestPlane = false
             }
+        }
+    }
+    
+    // MARK: - Ball dropping
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        let tapPoint = sender.location(in: sceneView)
+        let hitResults = sceneView.hitTest(tapPoint, options: nil)
+
+        if let hitResult = hitResults.first {
+            os_log("got scenekit hits")
+            sceneView.scene.rootNode.addChildNode(Ball(hitPosition: hitResult.worldCoordinates))
+        } else {
+            os_log("no hits")
         }
     }
     

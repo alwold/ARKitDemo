@@ -15,6 +15,8 @@
 		883C7A811F7420EC003ECA73 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A801F7420EC003ECA73 /* Plane.swift */; };
 		883C7A831F742682003ECA73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A821F742682003ECA73 /* Settings.swift */; };
 		883C7A851F742707003ECA73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A841F742707003ECA73 /* SettingsViewController.swift */; };
+		883C7A8B1F743F60003ECA73 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A8A1F743F60003ECA73 /* Ball.swift */; };
+		883C7A8D1F743F78003ECA73 /* UIColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C7A8C1F743F78003ECA73 /* UIColor+Random.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		883C7A801F7420EC003ECA73 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		883C7A821F742682003ECA73 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		883C7A841F742707003ECA73 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		883C7A8A1F743F60003ECA73 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		883C7A8C1F743F78003ECA73 /* UIColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				883C7A801F7420EC003ECA73 /* Plane.swift */,
 				883C7A821F742682003ECA73 /* Settings.swift */,
 				883C7A841F742707003ECA73 /* SettingsViewController.swift */,
+				883C7A8A1F743F60003ECA73 /* Ball.swift */,
+				883C7A8C1F743F78003ECA73 /* UIColor+Random.swift */,
 			);
 			path = ARKitDemo;
 			sourceTree = "<group>";
@@ -145,8 +151,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883C7A8B1F743F60003ECA73 /* Ball.swift in Sources */,
 				883C7A7F1F741DD0003ECA73 /* ViewController.swift in Sources */,
 				883C7A811F7420EC003ECA73 /* Plane.swift in Sources */,
+				883C7A8D1F743F78003ECA73 /* UIColor+Random.swift in Sources */,
 				883C7A831F742682003ECA73 /* Settings.swift in Sources */,
 				883C7A851F742707003ECA73 /* SettingsViewController.swift in Sources */,
 				883C7A6D1F741A2A003ECA73 /* AppDelegate.swift in Sources */,
