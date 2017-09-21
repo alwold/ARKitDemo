@@ -12,7 +12,12 @@ import os.log
 
 class Plane: SCNNode {
     let plane: SCNBox
-    
+    var visible = false {
+        didSet {
+            updateColor()
+        }
+    }
+
     init(anchor: ARPlaneAnchor) {
         let width = CGFloat(anchor.extent.x)
         let length = CGFloat(anchor.extent.z)
@@ -40,7 +45,11 @@ class Plane: SCNNode {
     }
     
     func updateColor() {
-        plane.firstMaterial!.diffuse.contents = UIColor(white: 1.0, alpha: 0.0)
+        if visible {
+            plane.firstMaterial!.diffuse.contents = UIColor(white: 0.6, alpha: 0.3)
+        } else {
+            plane.firstMaterial!.diffuse.contents = UIColor(white: 1.0, alpha: 0.0)
+        }
     }
 }
 

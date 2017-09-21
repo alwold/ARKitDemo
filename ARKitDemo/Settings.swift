@@ -10,6 +10,7 @@ import Foundation
 
 protocol SettingsDelegate: class {
     func showDebugViewChanged(to: Bool)
+    func showPlanesChanged(to: Bool)
 }
 
 class Settings {
@@ -20,6 +21,11 @@ class Settings {
     var showDebugView = false {
         didSet {
             delegate?.showDebugViewChanged(to: showDebugView)
+        }
+    }
+    var showPlanes = false {
+        didSet {
+            delegate?.showPlanesChanged(to: showPlanes)
         }
     }
 }

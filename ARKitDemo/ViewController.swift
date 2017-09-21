@@ -39,6 +39,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Se
         if let anchor = anchor as? ARPlaneAnchor {
             os_log("adding plane")
             let plane = Plane(anchor: anchor)
+            if Settings.shared.showPlanes {
+                plane.visible = true
+            }
             node.addChildNode(plane)
             planesByAnchorIdentifier[anchor.identifier] = plane
             updateDebugView()
@@ -70,6 +73,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Se
     // MARK: - Settings
     func showDebugViewChanged(to showDebugView: Bool) {
         debugView.isHidden = !showDebugView
+    }
+    
+    func showPlanesChanged(to showPlanes: Bool) {
+        for plane in planesByAnchorIdentifier.values {
+            plane.visible = showPlanes
+        }
     }
     
     // MARK: - Debug View
