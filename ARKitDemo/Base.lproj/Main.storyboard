@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -118,6 +119,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ib-Ug-JfW">
+                                <rect key="frame" x="37.5" y="136" width="300" height="40"/>
+                                <color key="backgroundColor" red="0.29819521307945251" green="0.84997797012329102" blue="0.39012432098388672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6cX-Lk-sFK"/>
+                                </constraints>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyButtonClicked:" destination="52s-Cg-M3q" eventType="touchUpInside" id="wWQ-UG-Y2N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -128,10 +142,13 @@
                             <constraint firstItem="5yo-Pu-6nx" firstAttribute="top" secondItem="I5v-om-MS8" secondAttribute="bottom" constant="8" symbolic="YES" id="9kH-nN-Rhk"/>
                             <constraint firstItem="TWJ-Uc-rR2" firstAttribute="trailing" secondItem="0GX-du-pWW" secondAttribute="trailing" constant="16" id="AOe-TC-S0H"/>
                             <constraint firstItem="TWJ-Uc-rR2" firstAttribute="bottom" secondItem="0GX-du-pWW" secondAttribute="bottom" constant="16" id="JWE-29-RdJ"/>
+                            <constraint firstItem="8ib-Ug-JfW" firstAttribute="centerX" secondItem="pR8-ZH-Fyq" secondAttribute="centerX" id="Lbc-ch-qim"/>
                             <constraint firstItem="VMc-3t-9N3" firstAttribute="centerY" secondItem="I5v-om-MS8" secondAttribute="centerY" id="eDw-OM-uIE"/>
                             <constraint firstItem="TWJ-Uc-rR2" firstAttribute="trailing" secondItem="VMc-3t-9N3" secondAttribute="trailing" constant="16" id="fbk-FJ-esa"/>
                             <constraint firstItem="TWJ-Uc-rR2" firstAttribute="trailing" secondItem="rhM-bE-8tp" secondAttribute="trailing" constant="16" id="nbz-Yh-811"/>
+                            <constraint firstItem="8ib-Ug-JfW" firstAttribute="top" secondItem="5yo-Pu-6nx" secondAttribute="bottom" constant="30" id="oWf-ma-Zed"/>
                             <constraint firstItem="rhM-bE-8tp" firstAttribute="centerY" secondItem="5yo-Pu-6nx" secondAttribute="centerY" id="pRh-Xn-Z1K"/>
+                            <constraint firstItem="8ib-Ug-JfW" firstAttribute="width" secondItem="TWJ-Uc-rR2" secondAttribute="width" multiplier="0.8" id="sVp-Ys-ZxK"/>
                             <constraint firstItem="I5v-om-MS8" firstAttribute="leading" secondItem="TWJ-Uc-rR2" secondAttribute="leading" constant="16" id="u7u-2r-YUe"/>
                             <constraint firstItem="5yo-Pu-6nx" firstAttribute="leading" secondItem="TWJ-Uc-rR2" secondAttribute="leading" constant="16" id="udd-2c-mOH"/>
                         </constraints>
@@ -139,6 +156,7 @@
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="200"/>
                     <connections>
+                        <outlet property="applyButton" destination="8ib-Ug-JfW" id="iUg-F1-re6"/>
                         <outlet property="showDebugViewSwitch" destination="I5v-om-MS8" id="Oae-eD-qfd"/>
                         <outlet property="showPlanesSwitch" destination="5yo-Pu-6nx" id="lAZ-Ev-9tm"/>
                     </connections>
